@@ -58,12 +58,12 @@ class GameViewModel : ViewModel() {
     // The list of words - the front of the list is the next word to guess
     private lateinit var wordList: MutableList<String>
 
-
     init {
-        resetList()
-        nextWord()
         _score.value = 0
         _word.value = ""
+
+        resetList()
+        nextWord()
 
         timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
 
@@ -126,7 +126,6 @@ class GameViewModel : ViewModel() {
         }
 
         _word.value = wordList.removeAt(0)
-
     }
 
 
